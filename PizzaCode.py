@@ -19,14 +19,21 @@ while inputting_prices == True:
         pass
     else:
         print("You didn't put Y or N in your answer.")
-    enter_diameter = float(input("What is the diameter of the pizza you're going to order? > "))
-    cost_of_pizza = float(input("What is the cost for one pizza? > "))
+    try:
+        enter_diameter = float(input("What is the diameter of the pizza you're going to order? > "))
+        cost_of_pizza = float(input("What is the cost for one pizza? > "))
+        tax_amount = float(input("What percentage is the tax? Answer with a whole number. If there is no percentage, type 0. > "))
+        tip_amount = float(input("How much are you planning to tip? > "))
+        price_of_toppings = float(input("What are the prices of the toppings? > "))
+        slice_number = int(input("How many slices do you want of this pizza? > "))
+    except TypeError:
+        print("Please input an actual number.")
+        calculate()
     pizza_area = ((enter_diameter / 2) ** 2) * 3.14
     try:
         cost_per_area = round(cost_of_pizza / pizza_area, 2)
     except ZeroDivisionError:
         cost_per_area = 0
-    tax_amount = input("What percentage is the tax? Answer with a whole number. If there is no percentage, type 0. > ")
     multiply_by = 0
     if len(tax_amount) == 1:
         multiply_by = '1.0' + str(int(tax_amount))
@@ -37,8 +44,6 @@ while inputting_prices == True:
             multiply_by = '1.0' + str(round(tax_amount))
     else:
         print("Invalid tip percentage.")
-    tip_amount = input("How much are you planning to tip? > ")
-    price_of_toppings = input("What are the prices of the toppings? > ")
     range_list = [i for i in range(1, 4)]
     range_list_2 = [i for i in range(19, 999)]
     combined_lists = range_list + range_list_2
@@ -63,7 +68,6 @@ while inputting_prices == True:
             "slice_count" : 10,
         },
     }
-    slice_number = int(input("How many slices do you want of this pizza? > "))
     for sizes, value in pizza_sizes.items():
         slices = 0
         cost_per_slice = 0
@@ -71,7 +75,7 @@ while inputting_prices == True:
             if diameter == enter_diameter and sizes != "Uncalculable":
                 slices = value["slice_count"]
                 number_of_pizzas = math.ceil(slice_number / slices)
-                total_cost_of_pizzas = (cost_of_pizza * number_of_pizzas) * float(multiply_by) + (float(tip_amount) + float(price_of_toppings))
+                total_cost_of_pizzas = (cost_of_pizza * number_of_pizzas) * float(multiply_by) + (float(tip_amount) + price_of_toppings)
                 total_slices = slices * number_of_pizzas
                 cost_per_slice = total_cost_of_pizzas / total_slices
                 message = "You're ordering a(n) " + sizes + " pizza. The cost of all the pizzas are " + str(total_cost_of_pizzas) + ". " +  str(number_of_pizzas) + " pizza(s) are needed. Since this is so, The cost per slice is " + str(cost_per_slice) + " dollars. The cost per square inch of one of the type of pizza you ordered is around " + str(cost_per_area) + " dollars.\n"
