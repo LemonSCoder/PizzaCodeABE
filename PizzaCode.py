@@ -41,7 +41,7 @@ while inputting_prices == True:
         price_of_toppings = float(input("What are the prices of the toppings? > "))
         #Allows user to input number of slices of the pizza they want to have.
         slice_number = int(input("How many slices do you want of this pizza? > "))
-    except TypeError:
+    except ValueError:
         #Tells user to input a number if they catch any non-integer or non-float convertable inputs. The user is sent back to entering the pizza's diameter if the code catches any non-integer or non-float convertable inputs.
         print("Please input an actual number.")
         calculate()
@@ -62,7 +62,7 @@ while inputting_prices == True:
         #Makes sure tax percentage can be approximated if the tax percentage is a decimal value.
         try:
             multiply_by = '1.' + str(int(tax_amount))
-        except TypeError:
+        except ValueError:
             multiply_by = '1.0' + str(round(tax_amount))
     #After the try and except function, if the tip percentage is still invalid, then the print statement: "Invalid tip percentage." will appear.
     else:
