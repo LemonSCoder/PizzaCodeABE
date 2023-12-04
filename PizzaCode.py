@@ -34,7 +34,7 @@ while inputting_prices == True:
         #Allows user to input cost of the pizza.
         cost_of_pizza = float(input("What is the cost for one pizza? > "))
         #Allows user to input the tax percentage. Start of Challenge A.
-        tax_amount = float(input("What percentage is the tax? If there is no percentage, type 0. > "))
+        tax_amount = input("What percentage is the tax? If there is no percentage, type 0. > ")
         #Allows user to input a tip amount. Start of Challenge B.
         tip_amount = float(input("How much are you planning to tip? > "))
         #Allows user to input topping prices.
@@ -112,9 +112,9 @@ while inputting_prices == True:
                 #Calculates total number of slices from all of the pizzas.
                 total_slices = slices * number_of_pizzas
                 #Calculates cost per slice.
-                cost_per_slice = total_cost_of_pizzas / total_slices
+                cost_per_slice = round(total_cost_of_pizzas / total_slices, 2)
                 #Compiles all necessary data for the user to see.
-                message = "You're ordering a(n) " + sizes + " pizza. The cost of all the pizzas are " + str(total_cost_of_pizzas) + ". " +  str(number_of_pizzas) + " pizza(s) are needed. Since this is so, The cost per slice is " + str(cost_per_slice) + " dollars. The cost per square inch of one of the type of pizza you ordered is around " + str(cost_per_area) + " dollars.\n"
+                message = "You're ordering a(n) " + sizes + " pizza. The cost of all the pizzas are " + str(total_cost_of_pizzas) + ". " +  str(number_of_pizzas) + " pizza(s) are needed. Since this is so, The cost per slice is around " + str(cost_per_slice) + " dollars. The cost per square inch of one of the type of pizza you ordered is around " + str(cost_per_area) + " dollars.\n"
                 print(message)
                 #All necessary data and total cost are appended to pizza_prices as a list.
                 pizza_prices.append([message, total_cost_of_pizzas])
