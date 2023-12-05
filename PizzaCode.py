@@ -3,6 +3,8 @@ import math
 from decimal import Decimal
 #pizza_prices is created so that the code can later recognize which pizza is the most optimal choice to order.
 pizza_prices = []
+global enter_diameter
+enter_diameter = 0
 global inputting_prices
 inputting_prices = True
 #This calculating the price of pizza continues through this loop.
