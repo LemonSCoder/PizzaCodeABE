@@ -122,7 +122,7 @@ while inputting_prices == True:
                     print("Your pizza is too small or large to be calculated.")
     except ValueError:
         #Tells user to input a number if they catch any non-integer or non-float convertable inputs. The user is sent back to entering the pizza's diameter if the code catches any non-integer or non-float convertable inputs.
-        print("Please input an actual number.")
+        print("Please input a valid answer.")
         calculate()
   calculate_for_pizza()
  calculate()
