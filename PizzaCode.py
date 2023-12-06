@@ -16,11 +16,15 @@ while inputting_prices == True:
         print(pizza_prices)
         #This code displays the most optimal pizza(s) to buy through total price.
         if len(pizza_prices) > 0:
-            best_price = pizza_prices[0][1]
+            best_price = pizza_prices[0][0]
+            best_size = pizza_prices[0][1]
             for price in pizza_prices:
-                if price[1] < best_price:
-                    best_price = price[1]
-            print("\nTHE MOST OPTIMAL CHOICE (SO FAR) IS: " + str(best_price) + ".\n")
+                if price[0] < best_price:
+                    best_price = price[0]
+                    print("\nTHE MOST OPTIMAL CHOICE (IN TERMS OF COST) IS: " + str(best_price) + " .\n")
+                elif price[1] < best_size:
+                    best_price = price[0]
+                    print("\nTHE MOST OPTIMAL CHOICE (IN TERMS OF SIZE) IS " + str(best_size) + "dollars per square inch.\n")       
     elif "N" in question.upper():
         pass
     else:
@@ -112,7 +116,7 @@ while inputting_prices == True:
                     message = "You're ordering a(n) " + sizes + " pizza. The cost of all the pizzas are " + str(total_cost_of_pizzas) + ". " +  str(number_of_pizzas) + " pizza(s) are needed. Since this is so, The cost per slice is around " + str(cost_per_slice) + " dollars. The cost per square inch of one of the type of pizza you ordered is around " + str(cost_per_area) + " dollars.\n"
                     print(message)
                     #All necessary data and total cost are appended to pizza_prices as a list.
-                    pizza_prices.append([message, total_cost_of_pizzas])
+                    pizza_prices.append([total_cost_of_pizzas, cost_per_area])
                 elif diameter == enter_diameter and sizes == "Uncalculable":
                     #Ensures that data won't be shown to the user if the pizza, given its diameter from the user, is too small or large to be calculated. 
                     print("Your pizza is too small or large to be calculated.")
