@@ -14,7 +14,7 @@ while inputting_prices == True:
     #Pizza prices are viewed if and only if Y is input in question.upper().
     if "Y" in question.upper():
         print(pizza_prices)
-        #This code displays the most optimal pizza(s) to buy through total price.
+        #This code displays the most optimal pizza(s) to buy through total price and cost per square inch of pizza.
         if len(pizza_prices) > 0:
             best_price = pizza_prices[0][0]
             best_size = pizza_prices[0][1]
