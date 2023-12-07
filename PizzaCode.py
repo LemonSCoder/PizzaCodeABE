@@ -21,10 +21,10 @@ while inputting_prices == True:
             for price in pizza_prices:
                 if price[0] < best_price:
                     best_price = price[0]
-                    print("\nTHE MOST OPTIMAL CHOICE (IN TERMS OF COST) IS: " + str(best_price) + " .\n")
                 elif price[1] < best_size:
-                    best_price = price[1]
-                    print("\nTHE MOST OPTIMAL CHOICE (IN TERMS OF SIZE) IS " + str(best_size) + "dollars per square inch.\n")       
+                    best_price = price[1]   
+            print("\nTHE MOST OPTIMAL CHOICE (IN TERMS OF COST) IS: " + str(best_price) + " .\n")
+            print("\nTHE MOST OPTIMAL CHOICE (IN TERMS OF SIZE) IS " + str(best_size) + " dollars per square inch.\n")    
     elif "N" in question.upper():
         pass
     else:
